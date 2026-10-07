@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protein bars without sugar alcohols</title>
+<meta name="description" content="Protein bars with at least 20g of protein, no sugar alcohols, and less fat than an Aloha bar, checked label by label, with leucine estimates.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Protein bars without sugar alcohols">
+<meta property="og:description" content="Protein bars with at least 20g of protein, no sugar alcohols, and less fat than an Aloha bar, checked label by label, with leucine estimates.">
+<meta property="og:url" content="https://drewhoover.com/protein-bar-lookbook/">
+<meta property="og:image" content="https://drewhoover.com/protein-bar-lookbook/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Protein bars without sugar alcohols">
+<meta name="twitter:description" content="Protein bars with at least 20g of protein, no sugar alcohols, and less fat than an Aloha bar, checked label by label, with leucine estimates.">
+<meta name="twitter:image" content="https://drewhoover.com/protein-bar-lookbook/og.png">
+<link rel="canonical" href="https://drewhoover.com/protein-bar-lookbook/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='20' width='52' height='24' rx='6' fill='%23111'/%3E%3Crect x='14' y='26' width='36' height='12' rx='3' fill='%23f6f3ec'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://drewhoover.com/embed/back-bar.js" async></script>
+<script src="https://drewhoover.com/embed/giscus.js" async></script>
+<style>
+:root{
+  --paper:#f6f3ec; --card:#fffdf8; --ink:#141414; --muted:#5d5a54; --rule:#141414; --hair:#d9d4c8;
+  --good:#1f7a4d; --warn:#b5650d; --bad:#b3261e; --leu:#141414; --leu-track:#e8e3d7;
+  --flag-bg:#fbefd9; --flag-ink:#7a4306; --soft-bg:#eceae4;
+  --amber-paper:#f4ecdc; --ink-paper:#16161a; --ink-text:#ece9e1; --ink-muted:#a6a39b;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Archivo,system-ui,sans-serif}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* masthead */
+.masthead{padding:56px 0 20px;border-bottom:10px solid var(--rule)}
+.kicker{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.kicker a{color:inherit;text-decoration:none;transition:.15s;border-bottom:1px solid color-mix(in srgb,currentColor 35%,transparent)}
+.kicker a:hover{border-bottom-color:currentColor}
+h1{font-weight:900;font-size:clamp(38px,7vw,76px);line-height:.95;letter-spacing:-.02em;margin:12px 0 14px}
+.sub{font-size:clamp(17px,2.2vw,21px);max-width:760px;margin:0 0 18px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.pill{font:500 13px "IBM Plex Mono",monospace;border:1.5px solid var(--ink);border-radius:999px;padding:3px 10px;text-decoration:none;background:transparent}
+.pill:hover{background:var(--ink);color:var(--paper)}
+
+/* explainer boxes */
+.boxes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:26px 0 8px}
+.box{background:var(--card);border:2px solid var(--ink);padding:16px 18px}
+.box h3{margin:0 0 6px;font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:.04em;border-bottom:4px solid var(--ink);padding-bottom:6px}
+.box p{margin:0;font-size:15px}
+.box.david{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.box.david h3{border-color:var(--paper)}
+.legend{font-size:14px;color:var(--muted);margin:16px 0 0;max-width:900px}
+
+/* controls */
+.controls{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair);margin-top:26px}
+.controls .wrap{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:10px;padding-bottom:10px}
+.controls .lbl{font:600 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:2px}
+.chip{font:500 13px Archivo,sans-serif;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer;touch-action:manipulation}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.controls .sp{flex:1 1 12px}
+select{font:500 13px Archivo,sans-serif;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);border-radius:6px;padding:5px 8px}
+
+/* sections */
+section{padding:40px 0 34px}
+section+section{border-top:10px solid var(--rule)}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.sec-head h2{font-weight:900;font-size:clamp(26px,4vw,40px);margin:0;letter-spacing:-.01em}
+.sec-head .count{font:500 14px "IBM Plex Mono",monospace;color:var(--muted)}
+.intro{max-width:780px;margin:0 0 22px;font-size:16px}
+#flagged{background:var(--amber-paper)}
+#near{background:var(--soft-bg)}
+#cut{background:var(--ink-paper);color:var(--ink-text)}
+#cut .intro,#cut .sec-head .count{color:var(--ink-muted)}
+#bridge{background:var(--paper)}
+
+/* grid + cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.card{background:var(--card);border:2px solid var(--ink);display:flex;flex-direction:column;position:relative}
+.card.hide{display:none}
+.rank{position:absolute;top:10px;left:10px;z-index:2;background:var(--ink);color:var(--paper);font:600 13px "IBM Plex Mono",monospace;padding:2px 8px}
+.media{background:#fff;border-bottom:2px solid var(--ink)}
+.main{aspect-ratio:1/1;width:100%;object-fit:contain;cursor:zoom-in;background:#fff}
+.thumbs{display:flex;gap:6px;padding:6px;border-top:1px solid var(--hair)}
+.thumbs img{width:52px;height:52px;object-fit:contain;border:1px solid var(--hair);cursor:pointer;background:#fff}
+.thumbs img.on{border-color:var(--ink)}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.shop{font:600 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.shop a{text-decoration:none}
+.card h3{margin:0;font-size:20px;line-height:1.15;font-weight:900}
+.flav{font-size:14px;color:var(--muted);margin-top:2px}
+.price{font:600 15px "IBM Plex Mono",monospace}
+.price small{font-weight:400;color:var(--muted)}
+
+/* mini facts panel */
+.facts{border:2px solid var(--ink);padding:6px 10px 8px;font-size:14px;background:#fff}
+.facts .ttl{font-weight:900;font-size:17px;border-bottom:6px solid var(--ink);padding-bottom:2px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:baseline}
+.facts .ttl span{font:500 12px "IBM Plex Mono",monospace;color:var(--muted)}
+.row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--hair);padding:3px 0}
+.row:last-child{border-bottom:0}
+.row b{font-weight:700}
+.row .v{font-family:"IBM Plex Mono",monospace;font-weight:500;text-align:right}
+.row .vs{color:var(--muted);font-weight:400;font-size:12px}
+.lower{color:var(--good)} .higher{color:var(--bad)}
+.meter{margin-top:6px}
+.meter .top{display:flex;justify-content:space-between;font-size:13px}
+.meter .top b{font-weight:700}
+.track{position:relative;height:12px;background:var(--leu-track);margin-top:4px}
+.fill{position:absolute;left:0;top:0;bottom:0;background:var(--leu)}
+.fill.short{background:repeating-linear-gradient(135deg,var(--leu) 0 4px,#6b675f 4px 7px)}
+.tick{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--bad)}
+.tick.soft{background:var(--muted);width:1px}
+.mnote{font-size:12px;color:var(--muted);margin-top:3px}
+.ingr{font-size:13px;color:var(--muted)}
+.ingr b{color:var(--ink);font-weight:600}
+.flags{display:flex;flex-wrap:wrap;gap:6px}
+.flag{font:600 11.5px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.03em;padding:3px 7px;border-radius:3px;background:var(--flag-bg);color:var(--flag-ink)}
+.flag.note{background:#ebe8e0;color:#3d3b36}
+.flag.ok{background:#e1efe6;color:#14532d}
+.note{font-size:15px;margin:0}
+.buy{margin-top:auto;display:block;text-align:center;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;padding:11px 12px;border:2px solid var(--ink)}
+.buy:hover{background:var(--card);color:var(--ink)}
+
+/* near misses */
+.nearrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.nm{background:var(--card);border:1.5px dashed var(--ink);padding:12px 14px}
+.nm h4{margin:0 0 4px;font-size:16px}
+.nm p{margin:0 0 8px;font-size:14px}
+.nm a{font:600 13px "IBM Plex Mono",monospace}
+
+/* cut list */
+.cutlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0 28px;margin:0;padding:0;list-style:none}
+.cutlist li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid #34343a}
+.cutlist .n{font-weight:700}
+.cutlist .n a{text-decoration:none;border-bottom:1px solid #55555c}
+.cutlist .r{font:500 13px "IBM Plex Mono",monospace;color:#f2b8a8;text-align:right}
+
+/* bridge */
+.bridge{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:20px;align-items:start}
+@media (max-width:720px){.bridge{grid-template-columns:1fr}}
+.math{background:var(--card);border:2px solid var(--ink);padding:14px 16px;font-size:15px}
+.math table{border-collapse:collapse;width:100%;font-family:"IBM Plex Mono",monospace;font-size:13.5px}
+.math td{padding:5px 4px;border-bottom:1px solid var(--hair)}
+.math td:last-child{text-align:right}
+
+footer{border-top:10px solid var(--rule);padding:26px 0 40px;font-size:14px;color:var(--muted)}
+footer .src{font-size:13px}
+footer .src a{color:var(--muted)}
+#comments{max-width:1180px;margin:0 auto;padding:0 16px 40px}
+
+.lb{position:fixed;inset:0;background:rgba(10,10,10,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.lb.on{display:flex}
+.lb img{max-width:min(92vw,1100px);max-height:88vh;background:#fff}
+.lb .x{position:absolute;top:10px;right:18px;color:#fff;font-size:40px;cursor:pointer;line-height:1}
+.empty{display:none;font-style:italic;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker"><a href="https://github.com/DrewHoo/shopping-lookbook" target="_blank" rel="noopener">A shopping lookbook</a> · <span id="kickerTail"></span></div>
+    <h1 id="h1"></h1>
+    <p class="sub" id="sub"></p>
+    <nav class="pills" id="pills"></nav>
+    <div class="boxes">
+      <div class="box david"><h3>About David bars</h3><p id="davidBox"></p></div>
+      <div class="box"><h3>The leucine line</h3><p id="leucineBox"></p></div>
+      <div class="box"><h3>The fiber catch</h3><p id="fiberBox"></p></div>
+    </div>
+    <p class="legend" id="legend"></p>
+  </div>
+</header>
+
+<div class="controls" role="toolbar" aria-label="Filter and sort">
+  <div class="wrap">
+    <span class="lbl">Show</span>
+    <button class="chip" data-f="all" aria-pressed="true">All</button>
+    <button class="chip" data-f="noflag" aria-pressed="false">No flags</button>
+    <button class="chip" data-f="nodairy" aria-pressed="false">Dairy-free</button>
+    <button class="chip" data-f="leu" aria-pressed="false">Leucine ≥ 2g</button>
+    <span class="sp"></span>
+    <span class="lbl">Sort</span>
+    <select id="sort" aria-label="Sort cards">
+      <option value="rank">Our ranking</option>
+      <option value="leu">Leucine (high → low)</option>
+      <option value="fat">Fat (low → high)</option>
+      <option value="price">Price per bar</option>
+    </select>
+  </div>
+</div>
+
+<main>
+  <section id="best"><div class="wrap">
+    <div class="sec-head"><h2 data-copy="best.title"></h2><span class="count" data-count="best"></span></div>
+    <p class="intro" data-copy="best.intro"></p>
+    <div class="grid" data-bucket="best"></div>
+    <p class="empty" data-empty="best">Nothing here matches that filter.</p>
+  </div></section>
+
+  <section id="flagged"><div class="wrap">
+    <div class="sec-head"><h2 data-copy="flagged.title"></h2><span class="count" data-count="flagged"></span></div>
+    <p class="intro" data-copy="flagged.intro"></p>
+    <div class="grid" data-bucket="flagged"></div>
+    <p class="empty" data-empty="flagged">Nothing here matches that filter.</p>
+  </div></section>
+
+  <section id="bridge"><div class="wrap">
+    <div class="sec-head"><h2 data-copy="bridge.title"></h2></div>
+    <p class="intro" data-copy="bridge.intro"></p>
+    <div class="bridge">
+      <div class="grid" data-bucket="bridge" style="grid-template-columns:1fr"></div>
+      <div class="math" id="bridgeMath"></div>
+    </div>
+  </div></section>
+
+  <section id="near"><div class="wrap">
+    <div class="sec-head"><h2 data-copy="near.title"></h2><span class="count" data-count="near"></span></div>
+    <p class="intro" data-copy="near.intro"></p>
+    <div class="nearrow" id="nearRow"></div>
+  </div></section>
+
+  <section id="cut"><div class="wrap">
+    <div class="sec-head"><h2 data-copy="cut.title"></h2><span class="count" data-count="cut"></span></div>
+    <p class="intro" data-copy="cut.intro"></p>
+    <ul class="cutlist" id="cutList"></ul>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <p id="footer"></p>
+  <p class="src">Sources: leucine % of protein from <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6245118/" target="_blank" rel="noopener">Gorissen et al. 2018</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3698202/" target="_blank" rel="noopener">Joy et al. 2013</a> and USDA FoodData Central; per-meal leucine from the <a href="https://doi.org/10.1186/s12970-017-0177-8" target="_blank" rel="noopener">ISSN position stand</a>, <a href="https://doi.org/10.1093/gerona/glu103" target="_blank" rel="noopener">Moore et al. 2015</a> and <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11099237/" target="_blank" rel="noopener">Layman 2024</a>; GLP-1 guidance from the <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12304835/" target="_blank" rel="noopener">2025 ACLM/ASN/OMA/TOS advisory</a>. Labels read on each brand's own product page, October 7, 2026.</p>
+</div></footer>
+<div id="comments"></div>
+<div class="lb" id="lb" role="dialog" aria-label="Image viewer"><span class="x" aria-label="Close">&times;</span><img id="lbimg" alt=""></div>
+
+<script>
+const COPY = {"title_options": ["Protein bars without sugar alcohols", "The protein bar shortlist", "After the Aloha bar"], "title": "Protein bars without sugar alcohols", "h1_options": ["Twenty grams, nothing ending in -itol", "Twenty grams of protein, no sugar alcohols", "What comes after the Aloha bar"], "h1": "Twenty grams, nothing ending in -itol", "sub": "At least 20g of protein, less fat than an Aloha bar, and no sugar alcohols, which turns out to rule out nearly every popular bar.", "kicker_tail": "what comes after the Aloha bar", "meta_description": "Protein bars with at least 20g of protein, no sugar alcohols, and less fat than an Aloha bar, checked label by label, with leucine estimates.", "legend": "Every bar here has at least 20g of protein, no sugar alcohols, 10g of sugar or less, and less fat than the 13g in an Aloha bar. Allulose and any dairy besides whey isolate get a flag, not a cut. Leucine numbers are estimates worked out from where each protein sits in the ingredient list, and prices are as of October 7, 2026.", "david_box": "David didn't make it. Its own ingredient list now reads \"binding system: maltitol, allulose, glycerin,\" and maltitol is a sugar alcohol. Behind it are three proteins this page flags (milk protein isolate, collagen, and whey concentrate) plus EPG, a modified fat.", "leucine_box": "Each card puts an estimated leucine number next to a 2.5g line. Somewhere around 2 to 2.5g of leucine in one sitting is enough for maximal muscle protein synthesis in adults, and closer to 2.8g past 60. The protein source decides most of it: whey isolate is about 11.5% leucine, egg white 8.4%, pea 7.1%, and collagen 2.9%, so a 20g whey isolate bar lands near 2.3g and a 20g plant bar near 1.4g. Almost no bar clears the line, and no brand prints the number.", "fiber_box": "The Julian Bakery bars get their near-zero sugar from tapioca fiber, the same stuff that's in Aloha, at 17 to 19g a bar instead of about 6g. GLP-1s slow how fast your stomach empties, and the 2025 joint advisory says to raise fiber gradually, so start with half a bar and see how it sits.", "sections": {"best": {"title": "Best fits", "intro": "Nothing on these labels breaks a rule or earns a flag. Four of the five lean hard on tapioca fiber, so the fiber note above applies."}, "flagged": {"title": "Good, with a flag", "intro": "These pass the hard rules, but each one has a flag, usually dairy that isn't whey isolate. They also hold the two extremes, with Promix highest in leucine and Lineage lowest in fat."}, "near": {"title": "Near misses", "intro": "These miss by one hard rule apiece. TRUBAR PRO is built almost exactly like an Aloha bar and comes up 2g short."}, "cut": {"title": "Cut", "intro": "Most of the bars people recommend ended up here, and the usual reason is a sugar alcohol."}, "bridge": {"title": "The leucine bridge", "intro": "If the bar you like comes in under the line, add leucine on the side instead of switching bars. About 1g of plain leucine or about 10g of the whey isolate powder you already tolerate gets a 1.6g bar past 2.5g."}}, "notes": {"jb-whey": "Five ingredients, and the closest this page gets to whey on Aloha's binder. The label says whey without saying isolate, and its 18g of fiber is triple Aloha's.", "jb-egg-pb": "Egg white, peanut butter, peanuts, monk fruit, and tapioca fiber, with no dairy anywhere. Egg carries less leucine than whey, so it lands around 1.6g.", "jb-egg-almond": "The same egg white bar with almond butter and Ceylon cinnamon, for when the peanut one gets old. It runs a little higher in fat, at 9g.", "zoneperfect": "The one you can buy at a Kroger-family store, four for $5.99. Soy isolate with monk fruit and stevia and no sugar alcohols, though the label is long: IMO, chicory root fiber, soluble corn fiber, butter, palm kernel oil, and a vitamin blend.", "jb-pea": "Vegan, with the lowest leucine of the best fits at about 1.4g. One review on the brand's own site says the bars \"taste and feel like cardboard.\"", "promix-giant": "A 100g bar meant to be eaten in halves, each about 19.5g of protein and 2.1g of leucine, more leucine than anything else here. Whey isolate leads the label and the binder is nearly Aloha's, but there's also whey concentrate, inulin, and 10g of sugar, right at the cap.", "atlas": "Sold as GLP-1 friendly, and only the Salted Peanut Butter and Chocolate Peanut Butter flavors skip allulose. Milk protein isolate comes first and collagen is in the mix, which holds leucine near 1.7g.", "lineage": "Only 4g of fat, and a short label built on whey concentrate, collagen, and beef tallow, sweetened with honey and coconut nectar, with no added fibers or gums. All 9g of its sugar is added.", "main-event": "The UFC's bar, new this fall. It passes every hard rule and picks up flags along the way: allulose, three kinds of dairy that aren't whey isolate, collagen, and chicory fiber.", "now-leucine": "Plain L-leucine powder from NOW Foods, $47.99 for 9 oz. It's bitter and floats on top of whatever you stir it into. Ask your prescriber or dietitian before adding it."}, "near_notes": {"kind-max": "20g of soy protein and allulose, but 13g of fat ties Aloha instead of beating it.", "trubar-pro": "Brown rice, pea, tapioca fiber, monk fruit: nearly Aloha's recipe, at 18g of protein.", "built-puff": "A GLP-1 crowd favorite that now uses sugar instead of sugar alcohol, at 17g of protein.", "power-crunch": "No sugar alcohols, and 21g of fat."}, "cut_lines": {"david": "maltitol, on its own label", "barebells": "maltitol", "quest": "erythritol", "kirkland": "erythritol", "one": "maltitol", "pure-protein": "maltitol", "think": "maltitol", "no-cow": "reformulated to erythritol", "first-phorm": "maltitol and sorbitol", "fitcrunch": "maltitol and sorbitol", "legendary": "erythritol", "misfits": "maltitol, and 15g protein", "rise": "now 16g protein, 16g sugar", "clif-builders": "18g sugar", "aloha": "the bar you're replacing: 14g protein, 13g fat"}, "footer": "No affiliate links here, and listings change, so check the label before you buy. This isn't medical advice; run it by your prescriber."};
+
+const sz = (u,w) => u.includes('cdn.shopify.com') ? u + (u.includes('?')?'&':'?') + 'width=' + w : u;
+const JB = 'https://cdn.shopify.com/s/files/1/0752/4791/1216/files/';
+const AT = 'https://cdn.shopify.com/s/files/1/1813/5651/files/';
+const PX = 'https://cdn.shopify.com/s/files/1/0507/9565/files/';
+const LN = 'https://cdn.shopify.com/s/files/1/0752/7078/3286/files/';
+const ALOHA = {fat:13, fiber:6, protein:14};
+const LEU_LINE = 2.5, LEU_MAX = 4.5;
+
+// leu = estimated grams of leucine per serving shown; leuHow = how we got it
+const BARS = [
+ {id:'jb-whey', bucket:'best', rank:1, brand:'Julian Bakery', name:'Whey Protein Bar', flavor:'Sweet Cream',
+  url:'https://julianbakery.com/products/whey-protein-bar-sweet-cream', price:34.99, count:12,
+  cal:205, protein:20, fat:8, sat:1.5, sugar:'<1', sugarN:0.5, added:0, fiber:18, leu:2.0,
+  leuHow:'≈16g whey × 11% + 4g pea × 7%', dairy:'whey',
+  ingr:'Tapioca fiber (soluble dextrin), organic whey protein, organic sunflower butter, hydrolyzed pea protein, monk fruit.',
+  flags:[{t:'Whey type not stated'},{t:'18g fiber'}], ok:['No sugar alcohols','Monk fruit only'],
+  imgs:[JB+'whey-protein-bar-sweet-cream-6863217.png?v=1781584150', JB+'whey-protein-bar-sweet-cream-2775294.png?v=1781584150', JB+'whey-protein-bar-sweet-cream-5018330.png?v=1781584151']},
+ {id:'jb-egg-pb', bucket:'best', rank:2, brand:'Julian Bakery', name:'Egg White Protein Bar', flavor:'Peanut Butter',
+  url:'https://julianbakery.com/products/egg-white-protein-bar-peanut-butter', price:34.99, count:12,
+  cal:200, protein:20, fat:7, sat:1, sugar:'1', sugarN:1, added:0, fiber:17, leu:1.6,
+  leuHow:'≈17g egg white × 8.4% + peanuts', dairy:'none',
+  ingr:'Tapioca fiber (soluble dextrin), egg white protein, organic peanut butter, organic roasted peanuts, monk fruit.',
+  flags:[{t:'17g fiber'}], ok:['Dairy-free','Monk fruit only'],
+  imgs:[JB+'egg-white-protein-bar-peanut-butter-8294648.png?v=1752235533', JB+'egg-white-protein-bar-peanut-butter-7025185.png?v=1752235534', JB+'egg-white-protein-bar-peanut-butter-7437786.png?v=1752898312']},
+ {id:'jb-egg-almond', bucket:'best', rank:3, brand:'Julian Bakery', name:'Egg White Protein Bar', flavor:'Almond Butter',
+  url:'https://julianbakery.com/products/egg-white-protein-bar-almond-butter', price:34.99, count:12,
+  cal:210, protein:20, fat:9, sat:1, sugar:'1', sugarN:1, added:0, fiber:17, leu:1.6,
+  leuHow:'≈17g egg white × 8.4% + almonds', dairy:'none',
+  ingr:'Tapioca fiber (soluble dextrin), egg white protein, almond butter, almonds, Ceylon cinnamon, monk fruit.',
+  flags:[{t:'17g fiber'}], ok:['Dairy-free','Monk fruit only'],
+  imgs:[JB+'egg-white-protein-bar-almond-butter-7326216.png?v=1770715351', JB+'egg-white-protein-bar-almond-butter-3789459.png?v=1770715351', JB+'egg-white-protein-bar-almond-butter-2657395.png?v=1770715351']},
+ {id:'zoneperfect', bucket:'best', rank:4, brand:'ZonePerfect', name:'High Protein Bar', flavor:'Blueberry Crumble',
+  url:'https://www.kroger.com/p/zoneperfect-high-protein-blueberry-crumble-bars-nutrition-bars/0063810266868', via:'Kroger', price:5.99, count:4,
+  cal:240, protein:20, fat:9, sat:4, sugar:'5', sugarN:5, added:2, fiber:5, leu:1.4,
+  leuHow:'mostly soy isolate × ~7%', dairy:'trace',
+  ingr:'Soy protein nuggets, IMO (tapioca), soy protein isolate, tapioca syrup blend (incl. chicory root fiber), almond butter, blueberries, butter, rice flour, egg powder, palm kernel oil, soluble corn fiber… stevia and monk fruit.',
+  flags:[{t:'Long label'},{t:'Chicory root fiber'},{t:'Trace milk/butter'}], ok:['No sugar alcohols','In grocery stores'],
+  imgs:['img/zoneperfect-front.jpg','img/zoneperfect-back.jpg']},
+ {id:'jb-pea', bucket:'best', rank:5, brand:'Julian Bakery', name:'Pea Protein Bar', flavor:'Dark Chocolate',
+  url:'https://julianbakery.com/products/pea-protein-bar-dark-chocolate', price:34.99, count:12,
+  cal:190, protein:20, fat:7, sat:1, sugar:'<1', sugarN:0.5, added:0, fiber:19, leu:1.4,
+  leuHow:'20g pea × 7.1%', dairy:'none',
+  ingr:'Tapioca fiber (soluble dextrin), pea protein, organic sunflower butter, cocoa, monk fruit.',
+  flags:[{t:'19g fiber'},{t:'Lowest leucine'}], ok:['Vegan','Monk fruit only'],
+  imgs:[JB+'pea-protein-bar-dark-chocolate-5174081.png?v=1751904093', JB+'pea-protein-bar-dark-chocolate-7111021.png?v=1751904096', JB+'pea-protein-bar-dark-chocolate-2952246.png?v=1751904093']},
+
+ {id:'promix-giant', bucket:'flagged', rank:1, brand:'Promix', name:'Giant Protein Puff Bar', flavor:'Vanilla · eat half at a time',
+  url:'https://promixnutrition.com/products/vanilla-giant-protein-puff-bars', price:45.00, count:6, half:true,
+  cal:370, protein:39, fat:8, sat:7, sugar:'10', sugarN:10, added:7, fiber:13, leu:4.2,
+  leuHow:'≈36g whey (isolate first) × 11% + egg white; ≈2.1g per half', dairy:'whey+wpc',
+  ingr:'Whey protein puffs (whey protein isolate, whey protein concentrate, tapioca starch, calcium carbonate, sunflower lecithin), marshmallow (tapioca syrup, tapioca fiber, glycerin, water, inulin, vanilla, agar, egg whites, sea salt), coconut oil.',
+  flags:[{t:'Whey concentrate'},{t:'10g sugar (at cap)'},{t:'7g sat fat'},{t:'Inulin'}], ok:['No sugar alcohols','No allulose, no stevia'],
+  imgs:[PX+'Promix-Protein-Puff-Bar-100g-Vanilla-Individual-Bar.png?v=1774556369', PX+'PuffBar_Giant_Vanilla_Web_01_4x5_e4295b81-778f-45fa-9ee8-6b40278579ca.png?v=1774560446', PX+'Promix-Protein-Puff-Bar-100g-Vanilla-Nutrition-Facts.png?v=1774556369']},
+ {id:'atlas', bucket:'flagged', rank:2, brand:'Atlas', name:'Protein Bar', flavor:'Salted Peanut Butter or Chocolate Peanut Butter only',
+  url:'https://atlasbars.com/products/bars', price:45.00, count:12,
+  cal:220, protein:20, fat:10, sat:2.5, sugar:'1', sugarN:1, added:0, fiber:12, leu:1.7,
+  leuHow:'≈9g milk protein × 9% + 6g whey isolate × 11.5% + collagen + nuts', dairy:'mpi',
+  ingr:'Protein blend (milk protein isolate, whey protein isolate, collagen), tapioca fiber, peanuts, almonds, vegetable glycerin, peanut flour, cocoa butter, peanut extract, sunflower lecithin, sea salt, monk fruit.',
+  flags:[{t:'Milk protein isolate'},{t:'Collagen'},{t:'Other flavors add allulose'}], ok:['No sugar alcohols','Aloha-like binder'],
+  imgs:[AT+'23.png?v=1787339094', AT+'24.png?v=1787339094', AT+'1_b14c0f42-b97c-47fe-8da0-34e100099aa9.png?v=1786739163']},
+ {id:'lineage', bucket:'flagged', rank:3, brand:'Lineage Provisions', name:'The Lineage Protein Bar', flavor:'Mixed Berry',
+  url:'https://lineageprovisions.com/products/the-lineage-bar-mixed-berry', price:49.00, count:12,
+  cal:175, protein:20, fat:4, sat:2, sugar:'9', sugarN:9, added:9, fiber:1, leu:1.8,
+  leuHow:'≈15g whey concentrate × 11% + collagen', dairy:'wpc',
+  ingr:'Grass-fed whey protein concentrate, grass-fed bovine collagen, organic coconut nectar, organic raw honey, beef tallow (abridged; full label on the product page). No added fibers or gums.',
+  flags:[{t:'Whey concentrate'},{t:'Collagen'},{t:'9g added sugar'}], ok:['Lowest fat here','No added fiber'],
+  imgs:[LN+'Frame336.png?v=1773187866', LN+'pdp-mixedberry_1.jpg?v=1788877300', LN+'mb-pdp-NFP.jpg']},
+ {id:'main-event', bucket:'flagged', rank:4, brand:'Main Event', name:'Protein Bar', flavor:'Peanut Butter Chocolate',
+  url:'https://maineventprotein.com/products/peanut-butter-chocolate', price:34.99, count:12,
+  cal:200, protein:20, fat:9, sat:3.5, sugar:'3', sugarN:3, added:0, fiber:5, leu:1.6,
+  leuHow:'≈16g milk/whey blend × 9.5% + collagen', dairy:'mpi',
+  ingr:'Milk protein isolate, milk protein concentrate, whey protein concentrate, collagen peptides; allulose, cassava root syrup, vegetable glycerin; chicory root and cassava root fiber.',
+  flags:[{t:'Allulose'},{t:'MPI + MPC + WPC'},{t:'Collagen'},{t:'Chicory root fiber'}], ok:['No sugar alcohols'],
+  imgs:['https://cdn.shopify.com/s/files/1/0743/7395/5740/files/Frame_1533211390_e489e864-5739-4a74-a5ea-ff66cb2889ae.jpg?v=1787588665']},
+
+ {id:'now-leucine', bucket:'bridge', rank:1, brand:'NOW Sports', name:'L-Leucine Powder', flavor:'9 oz · unflavored',
+  url:'https://www.nowfoods.com/products/sports-nutrition/l-leucine-powder', via:'NOW Foods', price:47.99, count:null, noFacts:true,
+  ingr:'L-leucine (instantized), sunflower lecithin (<5%).',
+  flags:[{t:'Bitter, floats'},{t:'Ask your prescriber'}], ok:['Dairy-free'],
+  imgs:['img/now-leucine.png']},
+];
+
+const NEAR = [
+ {id:'kind-max', name:'KIND Protein MAX', spec:'20g soy · allulose · 13g fat', url:'https://www.kindsnacks.com/products/protein-max/crispy-chocolate-peanut-butter-bars'},
+ {id:'trubar-pro', name:'TRUBAR PRO', spec:'18g brown rice + pea · tapioca fiber · monk fruit', url:'https://trubar.com/products/trubar-pro-chocolate-pea-nut-job'},
+ {id:'built-puff', name:'BUILT Puff', spec:'17g whey isolate + collagen · real sugar', url:'https://built.com/products/salted-caramel-puff'},
+ {id:'power-crunch', name:'Power Crunch PRO', spec:'20g · no sugar alcohols · 21g fat', url:'https://powercrunch.com/products/pro-peanut-butter-fudge-4ct'},
+];
+
+const CUT = [
+ {id:'david', name:'David', url:'https://davidprotein.com/products/fudge-brownie'},
+ {id:'barebells', name:'Barebells', url:'https://shop.barebells.com/products/barebells-caramel-cashew'},
+ {id:'quest', name:'Quest', url:'https://www.questnutrition.com/products/chocolate-chip-cookie-dough-protein-bar'},
+ {id:'kirkland', name:'Kirkland Signature', url:'https://www.costco.com/kirkland-signature-protein-bar-variety-pack-212-oz-20-count.product.100640763.html'},
+ {id:'one', name:'ONE', url:'https://www.onebrands.com/'},
+ {id:'pure-protein', name:'Pure Protein', url:'https://www.purepro.com/'},
+ {id:'think', name:'think!', url:'https://thinkproducts.com/products/high-protein-bar-brownie-crunch'},
+ {id:'no-cow', name:'No Cow', url:'https://nocow.com/products/chocolate-fudge-brownie-protein-bar'},
+ {id:'first-phorm', name:'1st Phorm Level-1', url:'https://1stphorm.com/products/level-1-bar-15-count'},
+ {id:'fitcrunch', name:'FITCRUNCH', url:'https://fitcrunch.com/products/fitcrunch-chocolate-peanut-butter-9ct-snack-size'},
+ {id:'legendary', name:'Legendary Foods', url:'https://eatlegendary.com/products/smores-protein-pastry'},
+ {id:'misfits', name:'Misfits', url:'https://eatmisfits.com/products/caramel-fudge'},
+ {id:'rise', name:'RISE Whey', url:'https://risebar.com/products/almond-honey-protein-bars'},
+ {id:'clif-builders', name:'CLIF Builders', url:'https://www.clifbar.com/products/clif-builders-chocolate-peanut-butter'},
+ {id:'aloha', name:'ALOHA (what you eat now)', url:'https://aloha.com/products/chocolate-chip-cookie-dough-protein-bar'},
+];
+
+/* ---------- render ---------- */
+const $ = (s,el=document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const get = (o,p) => p.split('.').reduce((a,k)=>a&&a[k],o);
+const perBar = b => b.count ? b.price / b.count : b.price;
+
+function card(b){
+  const note = (COPY.notes||{})[b.id] || '';
+  const via = b.via || b.brand;
+  const shopHost = new URL(b.url).hostname.replace(/^www\./,'');
+  const imgs = b.imgs.map(u => ({full:sz(u,1400), disp:sz(u,700), th:sz(u,140)}));
+  const fatCls = b.fat < ALOHA.fat ? 'lower' : 'higher';
+  const fibCls = b.fiber > ALOHA.fiber*2 ? 'higher' : '';
+  const leuPct = Math.min(100, (b.leu||0)/LEU_MAX*100);
+  const short = (b.leu||0) < LEU_LINE;
+  const facts = b.noFacts ? `
+    <div class="facts"><div class="ttl">Per 1g scoop <span>add-on</span></div>
+      <div class="row"><b>Leucine</b><span class="v">≈1.0 g</span></div>
+      <div class="row"><b>Takes a 1.6g bar to</b><span class="v">≈2.6 g</span></div>
+      <div class="row"><b>Top-ups per tub</b><span class="v">≈255</span></div>
+    </div>` : `
+    <div class="facts">
+      <div class="ttl">Per bar <span>${b.cal} cal${b.half?' · whole bar':''}</span></div>
+      <div class="row"><b>Protein</b><span class="v">${b.protein} g</span></div>
+      <div class="row"><b>Fat</b><span class="v"><span class="${fatCls}">${b.fat} g</span> <span class="vs">· sat ${b.sat} · Aloha 13</span></span></div>
+      <div class="row"><b>Sugar</b><span class="v">${b.sugar} g <span class="vs">· ${b.added} added</span></span></div>
+      <div class="row"><b>Fiber</b><span class="v"><span class="${fibCls}">${b.fiber} g</span> <span class="vs">· Aloha 6</span></span></div>
+      <div class="meter">
+        <div class="top"><b>Leucine, estimated</b><span class="mono">≈${b.leu.toFixed(1)} g</span></div>
+        <div class="track" role="img" aria-label="Estimated leucine ${b.leu} grams against a 2.5 gram line">
+          <div class="fill ${short?'short':''}" style="width:${leuPct}%"></div>
+          <div class="tick soft" style="left:${2.0/LEU_MAX*100}%" title="2.0 g"></div>
+          <div class="tick" style="left:${LEU_LINE/LEU_MAX*100}%" title="2.5 g"></div>
+        </div>
+        <div class="mnote">${esc(b.leuHow)}</div>
+      </div>
+    </div>`;
+  return `<article class="card" data-id="${b.id}" data-rank="${b.rank}" data-leu="${b.leu||0}" data-fat="${b.fat??99}" data-ppb="${perBar(b)}"
+      data-noflag="${b.bucket==='best'}" data-nodairy="${b.dairy==='none'}" data-leuok="${(b.half? b.leu/2 : b.leu||0) >= 2.0 || b.leu >= 2.0}">
+    ${b.bucket!=='bridge'?`<span class="rank">#${b.rank}</span>`:''}
+    <div class="media">
+      <img class="main" src="${imgs[0].disp}" data-full="${imgs[0].full}" alt="${esc(b.brand+' '+b.name+' '+(b.flavor||''))}" loading="lazy">
+      ${imgs.length>1?`<div class="thumbs">${imgs.map((im,i)=>`<img src="${im.th}" data-disp="${im.disp}" data-full="${im.full}" class="${i?'':'on'}" alt="" loading="lazy">`).join('')}</div>`:''}
+    </div>
+    <div class="body">
+      <div class="shop">${esc(b.brand)}${b.via?` · at <a href="https://${shopHost}" target="_blank" rel="noopener">${esc(b.via)}</a>`:''}</div>
+      <div><h3>${esc(b.name)}</h3>${b.flavor?`<div class="flav">${esc(b.flavor)}</div>`:''}</div>
+      <div class="price">$${b.price.toFixed(2)} <small>${b.count?`/ ${b.count} · $${perBar(b).toFixed(2)} a bar`:'/ tub'}</small></div>
+      ${facts}
+      <div class="flags">${(b.ok||[]).map(t=>`<span class="flag ok">${esc(t)}</span>`).join('')}${b.flags.map(f=>`<span class="flag${b.bucket==='flagged'?'':' note'}">${esc(f.t)}</span>`).join('')}</div>
+      <p class="note">${esc(note)}</p>
+      <p class="ingr"><b>Ingredients:</b> ${esc(b.ingr)}</p>
+      <a class="buy" href="${b.url}" target="_blank" rel="noopener">Buy at ${esc(shopHost)} ↗</a>
+    </div>
+  </article>`;
+}
+
+function render(){
+  document.title = COPY.title;
+  $('#kickerTail').textContent = COPY.kicker_tail;
+  $('#h1').textContent = COPY.h1;
+  $('#sub').textContent = COPY.sub;
+  $('#davidBox').textContent = COPY.david_box;
+  $('#leucineBox').textContent = COPY.leucine_box;
+  $('#fiberBox').textContent = COPY.fiber_box;
+  $('#legend').textContent = COPY.legend;
+  $('#footer').textContent = COPY.footer;
+  document.querySelectorAll('[data-copy]').forEach(el => el.textContent = get(COPY.sections, el.dataset.copy) || '');
+
+  for (const bucket of ['best','flagged','bridge']){
+    $(`.grid[data-bucket="${bucket}"]`).innerHTML = BARS.filter(b=>b.bucket===bucket).sort((a,b)=>a.rank-b.rank).map(card).join('');
+  }
+  $('#nearRow').innerHTML = NEAR.map(n=>`<div class="nm"><h4>${esc(n.name)}</h4><p class="mono" style="font-size:12.5px;color:var(--muted)">${esc(n.spec)}</p><p>${esc((COPY.near_notes||{})[n.id]||'')}</p><a href="${n.url}" target="_blank" rel="noopener">See it ↗</a></div>`).join('');
+  $('#cutList').innerHTML = CUT.map(c=>`<li><span class="n"><a href="${c.url}" target="_blank" rel="noopener">${esc(c.name)}</a></span><span class="r">${esc((COPY.cut_lines||{})[c.id]||'')}</span></li>`).join('');
+
+  const counts = {best:BARS.filter(b=>b.bucket==='best').length, flagged:BARS.filter(b=>b.bucket==='flagged').length, near:NEAR.length, cut:CUT.length};
+  document.querySelectorAll('[data-count]').forEach(el => el.textContent = counts[el.dataset.count] + (el.dataset.count==='cut'?' checked':' bars'));
+  $('#pills').innerHTML = [
+    ['#best', `${counts.best} best fits`], ['#flagged', `${counts.flagged} with a flag`], ['#bridge','the leucine bridge'],
+    ['#near', `${counts.near} near misses`], ['#cut', `${counts.cut} cut`]
+  ].map(([h,t])=>`<a class="pill" href="${h}">${t}</a>`).join('');
+
+  $('#bridgeMath').innerHTML = `<table>
+    ${BARS.filter(b=>b.bucket!=='bridge').sort((a,b)=>b.leu-a.leu).map(b=>{
+      const base = b.half ? b.leu/2 : b.leu;
+      return `<tr><td>${esc(b.brand)} ${esc(b.flavor.split(' · ')[0].split(' or ')[0])}${b.half?' (half)':''}</td><td>${base.toFixed(1)} → ${(base+1).toFixed(1)} g</td></tr>`;
+    }).join('')}
+  </table><p class="mnote" style="margin-top:8px">Bar estimate → bar + 1 g leucine. The line is 2.5 g (about 2.8 g past 60).</p>`;
+}
+
+/* ---------- filter / sort ---------- */
+let F = 'all';
+function apply(){
+  const key = $('#sort').value;
+  for (const bucket of ['best','flagged']){
+    const grid = $(`.grid[data-bucket="${bucket}"]`);
+    const cards = [...grid.children];
+    cards.sort((a,b)=>{
+      if (key==='leu') return b.dataset.leu - a.dataset.leu;
+      if (key==='fat') return a.dataset.fat - b.dataset.fat;
+      if (key==='price') return a.dataset.ppb - b.dataset.ppb;
+      return a.dataset.rank - b.dataset.rank;
+    }).forEach(c=>grid.appendChild(c));
+    let shown = 0;
+    cards.forEach(c=>{
+      const ok = F==='all' || (F==='noflag' && c.dataset.noflag==='true') || (F==='nodairy' && c.dataset.nodairy==='true') || (F==='leu' && c.dataset.leuok==='true');
+      c.classList.toggle('hide', !ok); if (ok) shown++;
+    });
+    $(`[data-empty="${bucket}"]`).style.display = shown ? 'none' : 'block';
+  }
+}
+document.addEventListener('click', e=>{
+  const chip = e.target.closest('.chip');
+  if (chip){ F = chip.dataset.f; document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===chip)); apply(); return; }
+  const th = e.target.closest('.thumbs img');
+  if (th){ const card = th.closest('.card'); const m = $('.main',card); m.src = th.dataset.disp; m.dataset.full = th.dataset.full;
+    card.querySelectorAll('.thumbs img').forEach(t=>t.classList.toggle('on', t===th)); return; }
+  const main = e.target.closest('.main');
+  if (main){ $('#lbimg').src = main.dataset.full; $('#lb').classList.add('on'); return; }
+  if (e.target.closest('#lb')) $('#lb').classList.remove('on');
+});
+document.addEventListener('keydown', e=>{ if (e.key==='Escape') $('#lb').classList.remove('on'); });
+$('#sort').addEventListener('change', apply);
+render(); apply();
+</script>
+</body>
+</html>
